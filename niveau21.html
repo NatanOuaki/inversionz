@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inversionz</title>
+    <style>
+            /* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+#hamburger{
+  margin-left: 20px;
+}
+
+#logo{
+    width: 300px;
+}
+
+#lune{
+  float: right;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+table{
+    margin-left: 350px
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+    #logo{width: 250px;}
+    table{width: 350px; margin-left: 0px}
+}
+@media screen and (max-width: 375px) {
+    #logo{width: 249px;}
+    table{width: 300px; margin-left: 0px}
+}
+
+@media screen and (max-width: 320px) {
+    #logo{width: 194px;}
+    table{height: 1cm; margin-left: 0px}
+}
+    td{
+        width: 145px;
+        height: 145px;
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+        text-align: center;
+        background-color: red;
+    }
+    .a1, .a2, .a3, .a4{
+        border-left: none;
+    }
+    .a2, .b2, .b1{
+        background-color: grey;
+    }
+
+    .a4, .b4, .c4, .d4{
+        border-bottom: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Acceuil</a>
+        <a href="regles.html">Règles du jeu</a>
+        <a href="niveaux.html">Niveaux</a>
+        <a href="contact.html">Contact</a>
+    </div>
+      
+      <!-- Use any element to open the sidenav -->
+      <span id='hamburger' style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776</span>
+      <img id= 'logo' src="https://i.ibb.co/cLM70hJ/logo.png">
+      <a href='niveau21dark.html'> <button  id='lune'> &#9790 </button> </a>
+      <hr>
+      <div id="main">
+      <table>
+        <tr>
+            <td class="a1" onclick="addA1()"></td>
+            <td class="b1"></td>
+            <td class="c1" onclick="addC1()"></td>
+            <td class="d1" onclick="addD1()"></td>
+
+        </tr>
+        <tr>
+            <td class="a2"></td>
+            <td class="b2"></td>
+            <td class="c2" onclick="addC2()"></td>
+            <td class="d2" onclick="addD2()"></td>
+
+        </tr>
+        <tr>
+            <td class="a3" onclick="addA3()"></td>
+            <td class="b3" onclick="addB3()"></td>
+            <td class="c3" onclick="addC3()"></td>
+            <td class="d3" onclick="addD3()"></td>
+        </tr>
+        <tr>
+            <td class="a4" onclick="addA4()"></td>
+            <td class="b4" onclick="addB4()"></td>
+            <td class="c4" onclick="addC4()"></td>
+            <td class="d4" onclick="addD4()"></td>
+        </tr>
+    </table>
+    <footer>
+        <hr>
+        <h2 style="text-align: center;"> © 2020 Copyright, Inversionz, a Nodev Company </h2>
+      </footer>
+      </div>
+    <script>
+        const a1 = document.getElementsByClassName('a1')[0]
+        const a2 = document.getElementsByClassName('a2')[0]
+        const a3 = document.getElementsByClassName('a3')[0]
+        const a4 = document.getElementsByClassName('a4')[0]
+
+        const b1 = document.getElementsByClassName('b1')[0]
+        const b2 = document.getElementsByClassName('b2')[0]
+        const b3 = document.getElementsByClassName('b3')[0]
+        const b4 = document.getElementsByClassName('b4')[0]
+
+        const c1 = document.getElementsByClassName('c1')[0]
+        const c2 = document.getElementsByClassName('c2')[0]
+        const c3 = document.getElementsByClassName('c3')[0]
+        const c4 = document.getElementsByClassName('c4')[0]
+
+        const d1 = document.getElementsByClassName('d1')[0]
+        const d2 = document.getElementsByClassName('d2')[0]
+        const d3 = document.getElementsByClassName('d3')[0]
+        const d4 = document.getElementsByClassName('d4')[0]
+
+        var a11 = false
+        var a22 = false
+        var a33 = false
+        var a44 = false
+        var b11 = false
+        var b22 = false
+        var b33 = false
+        var b44 = false
+        var c11 = false
+        var c22 = false
+        var c33 = false
+        var c44 = false
+        var d11 = false
+        var d22 = false
+        var d33 = false
+        var d44 = false
+
+
+        const addA1 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }    
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            } 
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+    }
+        const addA2 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }  
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }   
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                } 
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }  
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+            }
+        const addA3 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            } 
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                     a2.style.backgroundColor = "grey";
+                }
+                else{
+                    a2.style.backgroundColor = "grey";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addA4 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            } 
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addB1 = () =>{     
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }   
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }     
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addB2 = () =>{
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }    
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }  
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                } 
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                } 
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addB3 = () =>{
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }  
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }    
+            
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addB4 = () =>{
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            }  
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }    
+            
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addC1 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            } 
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addC2 = () =>{
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }  
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }  
+            
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addC3 = () =>{
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }    
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            } 
+            
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+   
+        const addC4 = () =>{
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }    
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            } 
+            
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addD1 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            } 
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "lime";
+                }
+                else{
+                    a1.style.backgroundColor = "red";
+                }
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "grey";
+                }
+                else{
+                    b1.style.backgroundColor = "grey";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "lime";
+                }
+                else{
+                    c1.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addD2 = () =>{
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }  
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }  
+            
+                if (c22 == true){
+                    c2.style.backgroundColor = "lime";
+                }
+                else{
+                    c2.style.backgroundColor = "red";
+                }
+                if (a22 == true){
+                                    a2.style.backgroundColor = "grey";
+                }
+                else{
+                                    a2.style.backgroundColor = "grey";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "grey";
+                }
+                else{
+                    b2.style.backgroundColor = "grey";
+                }
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+        const addD3 = () =>{
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }    
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            } 
+            
+                if (c33 == true){
+                    c3.style.backgroundColor = "lime";
+                }
+                else{
+                    c3.style.backgroundColor = "red";
+                }
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "lime";
+                }
+                else{
+                    a3.style.backgroundColor = "red";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "lime";
+                }
+                else{
+                    b3.style.backgroundColor = "red";
+                }
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+   
+        const addD4 = () =>{
+            if ( d33 == false){
+                d33 = true
+            }
+            else{
+                d33 = false
+            }
+            if ( d22 == false){
+                d22 = true
+            }
+            else{
+                d22 = false
+            }
+            if ( a44 == false){
+                a44 = true
+            }
+            else{
+                a44 = false
+            }
+            if ( b44 == false){
+                b44 = true
+            }
+            else{
+                b44 = false
+            }
+            if ( d44 == false){
+                d44 = true
+            }
+            else{
+                d44 = false
+            }
+            if ( d11 == false){
+                d11 = true
+            }
+            else{
+                d11 = false
+            }    
+            if ( c44 == false){
+                c44 = true
+            }
+            else{
+                c44 = false
+            } 
+            
+                if (d33 == true){
+                    d3.style.backgroundColor = "lime";
+                }
+                else{
+                    d3.style.backgroundColor = "red";
+                }
+                if (d22 == true){
+                    d2.style.backgroundColor = "lime";
+                }
+                else{
+                    d2.style.backgroundColor = "red";
+                }
+                if (c44 == true){
+                    c4.style.backgroundColor = "lime";
+                }
+                else{
+                    c4.style.backgroundColor = "red";
+                }
+                if (a44 == true){
+                    a4.style.backgroundColor = "lime";
+                }
+                else{
+                    a4.style.backgroundColor = "red";
+                }
+                if (b44 == true){
+                    b4.style.backgroundColor = "lime";
+                }
+                else{
+                    b4.style.backgroundColor = "red";
+                }
+                if (d44 == true){
+                    d4.style.backgroundColor = "lime";
+                }
+                else{
+                    d4.style.backgroundColor = "red";
+                }
+                if (d11 == true){
+                    d1.style.backgroundColor = "lime";
+                }
+                else{
+                    d1.style.backgroundColor = "red";
+                }
+                if (a1.style.backgroundColor == "lime" && a2.style.backgroundColor == "grey" && a3.style.backgroundColor == "lime" &&  a4.style.backgroundColor == "lime" && b1.style.backgroundColor == "grey" && b2.style.backgroundColor == "grey" && b3.style.backgroundColor == "lime" &&  b4.style.backgroundColor == "lime" && c1.style.backgroundColor == "lime" && c2.style.backgroundColor == "lime" && c3.style.backgroundColor == "lime" && c4.style.backgroundColor == "lime" && d1.style.backgroundColor == "lime" && d2.style.backgroundColor == "lime" && d3.style.backgroundColor == "lime" && d4.style.backgroundColor == "lime" ){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau22.html","_self" )
+                    }, 100);  
+   }
+        }
+
+       /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inversionz - Niveaux</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+    /* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+#hamburger{
+  margin-left: 20px;
+}
+
+img{
+  height: 200px;
+}
+
+*{
+  font-family: "Telugu MN";
+}
+
+
+#container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+
+}
+
+#niveau{
+  text-align: center;
+}
+
+#logo{
+    height: 27.77px;
+}
+#lune{
+  float: right;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+  #container{
+  display: grid ;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+}
+img{
+  height: 150px;
+}
+}
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Acceuil</a>
+        <a href="regles.html">Règles du jeu</a>
+        <a href="niveaux.html">Niveaux</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      
+      <!-- Use any element to open the sidenav -->
+      <span id='hamburger' style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776</span>
+      <img id= 'logo' src="https://i.ibb.co/Qnjw6RL/niveaux.png">
+      <a href='niveauxclair.html'> <button  id='lune'> &#9790 </button> </a>
+      <hr>
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+                <div id="main">
+        <div id='container'>
+            <div id='niveau'>
+              <a href="niveau1dark.html">
+                <img src="https://i.ibb.co/rfBJc5r/niveau1dark.png" alt="">
+                <h5>Niveau 1</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau2dark.html">
+                <img src="https://i.ibb.co/FBLWN6p/niveau2dark.png" alt="">
+                <h5>Niveau 2</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau3dark.html">
+                <img src="https://i.ibb.co/dfPyqMT/niveau3dark.png" alt="">
+                <h5>Niveau 3</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau4dark.html">
+                <img src="https://i.ibb.co/Fbrm05Z/niveau4dark.png" alt="">
+                <h5>Niveau 4</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau5dark.html">
+                <img src="https://i.ibb.co/PmyjPj9/niveau5dark.png" alt="">
+                <h5>Niveau 5</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau6dark.html">
+                <img src="https://i.ibb.co/hcYLjcP/niveau6dark.png" alt="">
+                <h5>Niveau 6</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau7dark.html">
+                <img src="https://i.ibb.co/vjffDVH/niveau7dark.png" alt="">
+                <h5>Niveau 7</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau8dark.html">
+                <img src="https://i.ibb.co/mBw0Mzn/niveau8dark.png" alt="">
+                <h5>Niveau 8</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau9dark.html">
+                <img src="https://i.ibb.co/Bym8k4S/niveau9dark.png" alt="">
+                <h5>Niveau 9</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau10dark.html">
+                <img src="https://i.ibb.co/VJ6vSv0/niveau10dark.png" alt="">
+                <h5>Niveau 10</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau11dark.html">
+                <img src="https://i.ibb.co/Bqq6zwF/niveau11dark.png" alt="">
+                <h5>Niveau 11</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau12dark.html">
+                <img src="https://i.ibb.co/qn3ss65/niveau12dark.png" alt="">
+                <h5>Niveau 12</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau13dark.html">
+                <img src="https://i.ibb.co/17JJFzJ/niveau13dark.png" alt="">
+                <h5>Niveau 13</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau14dark.html">
+                <img src="https://i.ibb.co/WsY05hg/niveau14dark.png" alt="">
+                <h5>Niveau 14</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau15dark.html">
+                <img src="https://i.ibb.co/5r7LLyg/niveau15dark.png" alt="">
+                <h5>Niveau 15</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau16dark.html">
+                <img src="https://i.ibb.co/jf1JZVP/niveau16dark.png" alt="">
+                <h5>Niveau 16</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau17dark.html">
+                <img src="https://i.ibb.co/q9HCskD/niveau17dark.png" alt="">
+                <h5>Niveau 17</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau18dark.html">
+                <img src="https://i.ibb.co/ngbFytp/dark.png" alt="">
+                <h5>Niveau 18</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau19dark.html">
+                <img src="https://i.ibb.co/10HMJNj/19dark.png" alt="">
+                <h5>Niveau 19</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau20dark.html">
+                <img src="https://i.ibb.co/G5zTcCq/19dark.png" alt="">
+                <h5>Niveau 20</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau21dark.html">
+                <img src="https://i.ibb.co/8s356yf/20dark.png" alt="">
+                <h5>Niveau 21</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau22dark.html">
+                <img src="https://i.ibb.co/j9CPsQW/22Dark.png" alt="">
+                <h5>Niveau 22</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau23dark.html">
+                <img src="https://i.ibb.co/By1Z4WW/23dark.png" alt="">
+                <h5>Niveau 23</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau24dark.html">
+                <img src="https://i.ibb.co/qJCqXJc/24Dark.png" alt="">
+                <h5>Niveau 24</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau25dark.html">
+                <img src="https://i.ibb.co/2kTdXYf/25dark.png" alt="">
+                <h5>Niveau 25</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau26dark.html">
+                <img src="https://i.ibb.co/kXGNJDB/Capture-d-e-cran-2020-07-29-a-21-38-21.png" alt="">
+                <h5>Niveau 26</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau27dark.html">
+                <img src="https://i.ibb.co/Ns7Kryg/27Dark.png" alt="">
+                <h5>Niveau 27</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau28dark.html">
+                <img src="https://i.ibb.co/jbg8Mmd/28Dark.png" alt="">
+                <h5>Niveau 28</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau29dark.html">
+                <img src="https://i.ibb.co/SN1dkNx/29Dark.png" alt="">
+                <h5>Niveau 29</h5>
+              </a> 
+            </div>
+            <div id='niveau'> 
+              <a href="niveau30dark.html">
+                <img src="https://i.ibb.co/1Qf8GCH/30Dark.png" alt="">
+                <h5>Niveau 30</h5>
+              </a> 
+            </div>
+        </div>
+
+      </div>
+      <footer>
+        <hr>
+        <h2 style="text-align: center;"> © 2020 Copyright, Inversionz, a Nodev Company </h2>
+      </footer>
+    <script>
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+    </script>
+</body>
+</html>

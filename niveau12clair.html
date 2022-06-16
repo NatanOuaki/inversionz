@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inversionz</title>
+    <style>
+    /* The side navigation menu */
+    .sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+#hamburger{
+  margin-left: 20px;
+}
+
+#logo{
+    width: 300px;
+}
+#lune{
+  float: right;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+table{
+    margin-left: 350px
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+    #logo{width: 250px;}
+    table{width: 350px; margin-left: 0px}
+}
+@media screen and (max-width: 375px) {
+    #logo{width: 249px;}
+    table{width: 300px; margin-left: 0px}
+}
+
+@media screen and (max-width: 320px) {
+    #logo{width: 194px;}
+    table{height: 1cm; margin-left: 0px}
+}
+    td{
+        width: 200px;
+        height: 200px;
+        border-bottom: 2px solid black;
+        border-left: 2px solid black;
+        text-align: center;
+        background-color: rgb(255, 119, 0);
+    }
+    .a1, .a2, .a3{
+        border-left: none;
+    }
+    .a3, .c1{
+        background-color: black; 
+    }
+    .a3, .b3, .c3{
+        border-bottom: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Acceuil</a>
+        <a href="regles.html">Règles du jeu</a>
+        <a href="niveaux.html">Niveaux</a>
+        <a href="contact.html">Contact</a>
+    </div>
+      
+      <!-- Use any element to open the sidenav -->
+      <span id='hamburger' style="font-size:40px;cursor:pointer" onclick="openNav()">&#9776</span>
+      <img id= 'logo' src="https://i.ibb.co/cLM70hJ/logo.png">
+      <a href='niveau12.html'> <button  id='lune'> &#9790 </button> </a>
+
+      <hr>
+      <div id="main">
+    <table>
+        <tr>
+            <td class="a1" onclick="addA1()"></td>
+            <td class="b1" onclick="addB1()"></td>
+            <td class="c1"></td>
+        </tr>
+        <tr>
+            <td class="a2" onclick="addA2()"></td>
+            <td class="b2" onclick="addB2()"></td>
+            <td class="c2" onclick="addC2()"></td>
+        </tr>
+        <tr>
+            <td class="a3"></td>
+            <td class="b3" onclick="addB3()"></td>
+            <td class="c3" onclick="addC3()"></td>
+        </tr>
+    </table>
+      </div>
+    <footer>
+        <hr>
+        <h2 style="text-align: center;"> © 2020 Copyright, Inversionz, a Nodev Company </h2>
+      </footer>
+    <script>
+        const a1 = document.getElementsByClassName('a1')[0]
+        const a2 = document.getElementsByClassName('a2')[0]
+        const a3 = document.getElementsByClassName('a3')[0]
+
+
+        const b1 = document.getElementsByClassName('b1')[0]
+        const b2 = document.getElementsByClassName('b2')[0]
+        const b3 = document.getElementsByClassName('b3')[0]
+
+        const c1 = document.getElementsByClassName('c1')[0]
+        const c2 = document.getElementsByClassName('c2')[0]
+        const c3 = document.getElementsByClassName('c3')[0]
+
+        const newGame = () =>{
+            a1.style.backgroundColor = "rgb(255, 119, 0)";
+            a2.style.backgroundColor = "rgb(255, 119, 0)";
+            a3.style.backgroundColor = "black";
+            b1.style.backgroundColor = "rgb(255, 119, 0)";
+            b2.style.backgroundColor = "rgb(255, 119, 0)";
+            b3.style.backgroundColor = "rgb(255, 119, 0)";
+            c1.style.backgroundColor = "black";
+            c2.style.backgroundColor = "rgb(255, 119, 0)";
+            c3.style.backgroundColor = "rgb(255, 119, 0)";
+
+        }
+        var a11 = false
+        var a22 = false
+        var a33 = false
+        var b11 = false
+        var b22 = false
+        var b33 = false
+        var c11 = false
+        var c22 = false
+        var c33 = false
+
+        const addA1 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = false
+            }
+            else{
+                a33 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = false
+            }
+            else{
+                c11 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a22 == true){
+                    a2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a33 == false){
+                    a3.style.backgroundColor = "black";
+                }
+                else{
+                    a3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c11 == false){
+                    c1.style.backgroundColor = "black";
+                }
+                else{
+                    c1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+    }
+        const addA2 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = false
+            }
+            else{
+                a33 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a22 == true){
+                    a2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a33 == false){
+                    a3.style.backgroundColor = "black";
+                }
+                else{
+                    a3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c2.style.backgroundColor = "rgb(255, 119, 0)";
+                }  
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+            }
+        const addA3 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( a33 == false){
+                a33 = true
+            }
+            else{
+                a33 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( c33 == false){
+                c33 = true
+
+            }
+            else{
+                c33 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a22 == true){
+                    a2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a33 == true){
+                    a3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+        }
+        const addB1 = () =>{     
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = false
+            }
+            else{
+                c11 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c11 == false){
+                    c1.style.backgroundColor = "black";
+                }
+                else{
+                    c1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+        }
+        const addB2 = () =>{
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }    
+            
+                if (b11 == true){
+                    b1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a22 == true){
+                    a2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c2.style.backgroundColor = "rgb(255, 119, 0)";
+                } 
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+        }
+        const addB3 = () =>{
+            if ( a33 == false){
+                a33 = false
+            }
+            else{
+                a33 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }    
+            
+                if (b11 == true){
+                    b1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a33 == false){
+                    a3.style.backgroundColor = "black";
+                }
+                else{
+                    a3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+        }
+        const addC1 = () =>{
+            if ( a11 == false){
+                a11 = true
+            }
+            else{
+                a11 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( c33 == false){
+                c33 = true
+
+            }
+            else{
+                c33 = false
+            }
+            if ( b11 == false){
+                b11 = true
+            }
+            else{
+                b11 = false
+            }
+            if ( c11 == false){
+                c11 = true
+            }
+            else{
+                c11 = false
+            }    
+            
+                if (a11 == true){
+                    a1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b11 == true){
+                    b1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c11 == true){
+                    c1.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                
+            if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+            }
+        }
+        const addC2 = () =>{
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a22 == false){
+                a22 = true
+            }
+            else{
+                a22 = false
+            }
+            if ( c33 == false){
+                c33 = true
+
+            }
+            else{
+                c33 = false
+            }
+            if ( b22 == false){
+                b22 = true
+            }
+            else{
+                b22 = false
+            }
+            if ( c11 == false){
+                c11 = false
+            }
+            else{
+                c11 = false
+            }    
+            
+                if (c22 == true){
+                    c2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a22 == true){
+                    a2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    a2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c33 == true){
+                    c3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b22 == true){
+                    b2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c11 == false){
+                    c1.style.backgroundColor = "black";
+                }
+                else{
+                    c1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html","_self" )
+                    }, 100);  
+                }
+        }
+        const addC3 = () =>{
+            if ( c33 == false){
+                c33 = true
+            }
+            else{
+                c33 = false
+            }
+            if ( c22 == false){
+                c22 = true
+            }
+            else{
+                c22 = false
+            }
+            if ( a33 == false){
+                a33 = false
+            }
+            else{
+                a33 = false
+            }
+            if ( b33 == false){
+                b33 = true
+            }
+            else{
+                b33 = false
+            }
+            if ( c11 == false){
+                c11 = false
+            }
+            else{
+                c11 = false
+            }    
+            
+                if (c33 == true){
+                    c3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c22 == true){
+                    c2.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    c2.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a33 == false){
+                    a3.style.backgroundColor = "black";
+                }
+                else{
+                    a3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (b33 == true){
+                    b3.style.backgroundColor = "rgb(255, 255, 0)";
+                }
+                else{
+                    b3.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (c11 == false){
+                    c1.style.backgroundColor = "black";
+                }
+                else{
+                    c1.style.backgroundColor = "rgb(255, 119, 0)";
+                }
+                if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+                    setTimeout(() => {
+                        alert('Bravo !! Prochain niveau...')
+                        window.open("niveau13clair.html", "_self" )
+                    }, 100);   
+                }
+        }
+   
+   if (a1.style.backgroundColor == "rgb(255, 255, 0)" && a2.style.backgroundColor == "rgb(255, 255, 0)" && a3.style.backgroundColor == "black" &&  b1.style.backgroundColor == "rgb(255, 255, 0)" && b2.style.backgroundColor == "rgb(255, 255, 0)" && b3.style.backgroundColor == "rgb(255, 255, 0)" && c1.style.backgroundColor == "black" && c2.style.backgroundColor == "rgb(255, 255, 0)" && c3.style.backgroundColor == "rgb(255, 255, 0)"){
+         b1.innerText = 'HELLOOO'
+   }
+
+       /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+    </script>
+
+</body>
+</html>
